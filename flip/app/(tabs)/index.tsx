@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { useRouter } from 'expo-router';
 import Animated, { useAnimatedStyle, withSpring } from 'react-native-reanimated';
@@ -17,6 +17,12 @@ export default function HomeScreen() {
 
   const productCount = state.products.length;
   const isLimitReached = productCount >= MAX_PRODUCTS;
+
+  useEffect(() => {
+    if (isLimitReached) {
+      setModalVisible(true);
+    }
+  }, [isLimitReached]);
 
   const handleAddPress = () => {
     if (isLimitReached) {

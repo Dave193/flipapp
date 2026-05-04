@@ -8,14 +8,14 @@ export const SplashScreen: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.replace('/(tabs)');
-    }, 2000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, [router]);
 
   return (
     <View style={styles.container}>
       <Image source={require('../assets/images/flip-logo.svg')} style={styles.logo} />
-      <Text style={styles.title}>FlipApp</Text>
+      <Text style={styles.title}>Welcome{'\n'}To{'\n'}Flip.</Text>
     </View>
   );
 };
@@ -36,5 +36,6 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     color: '#222',
+    textAlign: 'center',
   },
 });
